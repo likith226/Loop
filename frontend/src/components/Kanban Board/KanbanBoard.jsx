@@ -213,15 +213,34 @@ function KanbanBoard() {
         <DragOverlay>
           {draggedItem &&
             (draggedItem.cards ? (
-              <div className="flex flex-col p-3 w-64 bg-zinc-900 rounded-lg opacity-90 rotate-2 shadow-xl">
-                <h2 className="text-lg font-bold text-slate-200">
+              <div
+                className="
+                  flex flex-col p-4 w-64 rounded-xl
+                  opacity-90 rotate-2
+                  transition-colors duration-150
+
+                  bg-slate-200        dark:bg-[#1a1c1f]
+                  shadow-lifted       dark:shadow-lifted-dark
+                "
+              >
+                <h2
+                  className="
+                    text-base font-semibold mb-2
+                    text-primary        dark:text-slate-200
+                  "
+                >
                   {draggedItem.title}
                 </h2>
-                <div className="mt-2">
+                <div className="mt-2 space-y-2">
                   {draggedItem.cards.map((card) => (
                     <div
                       key={card.id}
-                      className="my-2 p-2 rounded-lg bg-zinc-600 text-slate-200"
+                      className="
+                        p-4 rounded-lg text-sm
+
+                        bg-white            dark:bg-[#1e2023]
+                        text-slate-900      dark:text-slate-200
+                      "
                     >
                       {card.title}
                     </div>
@@ -229,13 +248,29 @@ function KanbanBoard() {
                 </div>
                 <button
                   onClick={() => setShowAddCardModal(true)}
-                  className="w-full text-left text-sm text-slate-400 hover:text-slate-200"
+                  className="
+                    mt-2 w-full text-left text-sm
+                    transition-colors duration-150
+
+                    text-slate-400      dark:text-[#b4cad6]
+                  "
                 >
                   + Add a card
                 </button>
               </div>
             ) : (
-              <div className="p-2 rounded-lg bg-zinc-600 text-slate-200 opacity-90 rotate-2 shadow-xl cursor-grabbing">
+              <div
+                className="
+                  flex items-center gap-2
+                  p-4 rounded-lg text-sm
+                  opacity-90 rotate-2 cursor-grabbing
+                  transition-colors duration-150
+
+                  bg-white            dark:bg-[#1e2023]
+                  text-slate-900      dark:text-slate-200
+                  shadow-lifted       dark:shadow-lifted-dark
+                "
+              >
                 {draggedItem.title}
               </div>
             ))}
